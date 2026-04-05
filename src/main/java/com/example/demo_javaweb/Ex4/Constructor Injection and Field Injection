@@ -1,0 +1,14 @@
+1.
+Constructor Injection
+-  dùng final để dependency không bị thay đổi sau khi khởi tạo
+-   có  tính đóng gói chặt chẽ
+- đảm bảo tính bất biến
+- đối tượng luôn ở trạng thái hoàn chỉnh sau khi tạo
+2. Field Injection
+- không thể khai báo final
+- Che giấu dependency: Nhìn vào lớp không rõ ràng lớp cần bao nhiêu dependency
+-Khó viết Unit Test: Không thể truyền mock object trực tiếp nếu không có Spring Context
+
+==> chọn constructor injection vì
+ dùng final  để NotificationService có EmailSender và SmsSender
+ nếu có lỗi thì dev có thể kiểm thử

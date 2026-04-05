@@ -12,8 +12,9 @@ public class RechargeService {
 
         // cách viết này khiến mâts khả năng linh hoạt của ưungs dụng , dùng new kiến Spring không thể can thiệp để thay đỏi đối tượng được vì nó tự tạo phụ thuộc của nó
         // theo IoC thì nó phải nhường quyền điều khiển này cho Ioc
+
 //            this.gateway = new InternalPaymentGateway();
-        // Nhường quyền cho sprign khởi tạo -> RechargeService linh hoạt hơn
+        //để cho sprign khởi tạo -> RechargeService linh hoạt hơn
         this.payment = payment;
 
     }

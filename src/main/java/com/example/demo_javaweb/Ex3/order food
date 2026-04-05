@@ -1,0 +1,19 @@
+1. Input:
+- user
+food
+quantity
+
+2. output
+Thành công: Thông báo "Đặt món thành công!"
+Thất bại: Thông báo lỗi
+
+3. hướng làm
+- InventoryRepository: hàm checkStock(String food) và reduceStock(String food).
+- UserAccountRepository: hàm getBalance(int userId) và deductMoney(int user, double amount)
+- Dùng @Repository cho các lớp như kho, hay tài khoảnn
+- Dùng @Service cho lớp OrderFoodService để xử lý logic nghiệp vụ
+- Trong OrderFoodService, dùng final khai báo các trường InventoryRepository và UserAccountRepository
+- Trong phương thức đặt món, bạn cần thiết kế các bước kiểm tra tuần tự để tránh lỗi hệ thống:
+- Kiểm tra kho: Gọi InventoryRepository,nnếu số lượng bằng 0, ném ra ngoại lệ hoặc trả về thông báo lỗi ngay lập tức để tránh xử lý thừa
+- Kiểm tra tài khoản: Gọi UserAccountRepository. Nếu số dư nhỏ hơn giá món ăn, thông báo lỗi số dư không đủ
+- Thực hiện giao dịch: trừ tiền và trừ kho
